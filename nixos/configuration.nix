@@ -114,8 +114,8 @@
 
   stylix = {
     enable = true;
-    image = /home/jofre/.config/hypr/wallpapers/15.jpg;
-    base16Scheme = ./theme.yml;
+    image = ../theme/wallpaper.jpg;
+    base16Scheme = ../theme/gruvbox.yml;
     polarity = "dark";
   };
 
