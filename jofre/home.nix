@@ -9,10 +9,14 @@ let
     owner = "Jofr3";
     repo = ".dotfiles";
     rev = "e1fc2d53e1c90893e20ab67d895d2f98937d17d1";
-    sha256 = "sha256-ThvoHo0qwF7/6dyPKhXPv0kC+NtAMyAy0t6jgOva+Zs=";
+    sha256 = "sha256-eBhm1X5I6SZNepSUhlGzeTMhOHA3ngzqwNBcCHZveN0=";
   };
 in 
 {
+  imports = [
+    ../home/shared/packages.nix
+  ];
+
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -25,77 +29,77 @@ in
     homeDirectory = "/home/jofre";
   };
 
-  home.packages = with pkgs; [
-    # cli
-    fastfetch
-    lazygit
-    nix-prefetch-github
+  # home.packages = with pkgs; [
+  #   # cli
+  #   fastfetch
+  #   lazygit
+  #   nix-prefetch-github
 
-    # neovim
-    neovim
-    zoxide
-    eza
-    yazi
-    docker
-    docker-compose
-    inetutils
+  #   # neovim
+  #   neovim
+  #   zoxide
+  #   eza
+  #   yazi
+  #   docker
+  #   docker-compose
+  #   inetutils
 
-    # apps
-    kitty
-    chromium
-    qutebrowser
-    obsidian
-    google-chrome
-    nautilus
-    gnome-randr
-    eog
-    wl-color-picker
-    gnome-calculator
-    papers
-    gnome-bluetooth
-    gnome-screenshot
-    dialect
-    apostrophe
-    errands
-    vscode
-    dbeaver-bin
+  #   # apps
+  #   kitty
+  #   chromium
+  #   qutebrowser
+  #   obsidian
+  #   google-chrome
+  #   nautilus
+  #   gnome-randr
+  #   eog
+  #   wl-color-picker
+  #   gnome-calculator
+  #   papers
+  #   gnome-bluetooth
+  #   gnome-screenshot
+  #   dialect
+  #   apostrophe
+  #   errands
+  #   vscode
+  #   dbeaver-bin
 
-    # other
-    dmenu-wayland
-    wofi
-    bitwarden-cli
-    rbw
-    rofi-rbw
-    openconnect
-    dropbox-cli
+  #   # other
+  #   dmenu-wayland
+  #   wofi
+  #   bitwarden-cli
+  #   rbw
+  #   rofi-rbw
+  #   openconnect
+  #   dropbox-cli
 
-    # dependencies
-    git
-    gccgo
-    zig
-    python39
-    lua
-    luajitPackages.luarocks
-    unzip
-    wget
-    ripgrep
-    fd
-    rustc
-    cargo
-    sqlite
-    wl-clipboard-rs
-    wtype
-    pinentry-tty
-    openssl
-    nodejs_23
-    rsync
-    gnumake
+  #   # dependencies
+  #   git
+  #   gccgo
+  #   zig
+  #   python39
+  #   lua
+  #   luajitPackages.luarocks
+  #   unzip
+  #   wget
+  #   ripgrep
+  #   fd
+  #   rustc
+  #   cargo
+  #   sqlite
+  #   wl-clipboard-rs
+  #   wtype
+  #   pinentry-tty
+  #   openssl
+  #   nodejs_23
+  #   rsync
+  #   gnumake
 
-    # lsp's
-    lua-language-server
-    nil
-    vscode-langservers-extracted
-  ];
+  #   # lsp's
+  #   lua-language-server
+  #   nil
+  #   vscode-langservers-extracted
+  # ];
 
   programs = {
     home-manager.enable = true;
