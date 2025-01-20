@@ -1,5 +1,5 @@
 {
-  lib,
+  _lib,
   pkgs,
   _inputs,
   ...
@@ -8,8 +8,8 @@ let
   myConfig = pkgs.fetchFromGitHub {
     owner = "Jofr3";
     repo = ".dotfiles";
-    rev = "main";
-    sha256 = "62bb2ff8b27858fad838c89662eda871bde9f7fe";
+    rev = "e1fc2d53e1c90893e20ab67d895d2f98937d17d1";
+    sha256 = "sha256-ThvoHo0qwF7/6dyPKhXPv0kC+NtAMyAy0t6jgOva+Zs=";
   };
 in 
 {
@@ -29,6 +29,7 @@ in
     # cli
     fastfetch
     lazygit
+    nix-prefetch-github
 
     # neovim
     neovim
@@ -110,24 +111,20 @@ in
 
   stylix = {
     enable = true;
-    image = ./../../wallpapers/15.jpg;
+    image = pkgs.fetchurl {
+      url = "https://raw.githubusercontent.com/Jofr3/.dotfiles/refs/heads/main/wallpapers/15.jpg";
+      sha256 = "sha256-M1AP2BHZeV3m87qu4JGtzQ97lTzM5KlR6Qhk8jN3vmg=";
+    }; 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
     polarity = "dark";
   };
 
-  home.file.".config/nvim".source = "${myConfig}/nvim";
-
-  home.activation = {
-    cloneDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      if [ ! -d "$HOME/dotfiles" ]; then
-        ${pkgs.git}/bin/git clone https://github.com/Jofr3/.dotfiles.git "$HOME/.dotfiles"
-      fi
-    '';
+  home.file = {
+    ".config/hypr".source = "${myConfig}/config/hypr";
+    ".config/kitty".source = "${myConfig}/config/kitty";
+    ".config/fish".source = "${myConfig}/config/fish";
+    ".config/nvim".source = "${myConfig}/config/nvim";
   };
-
-  imports = [
-    ../config/hyprland
-  ];
 
   systemd.user.startServices = "sd-switch";
   home.stateVersion = "24.05";
