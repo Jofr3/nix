@@ -1,14 +1,10 @@
-{
-  _lib,
-  pkgs,
-  _inputs,
-  ...
-}:
+{ ... }:
 {
   imports = [
     ../home/shared/packages.nix
     ../home/shared/stylix.nix
     ../home/shared/configs.nix
+    ../home/shared/other.nix
   ];
 
   home = {
@@ -17,8 +13,6 @@
   };
 
   programs = {
-    home-manager.enable = true;
-
     git = {
       enable = true;
       userName = "Jofr3";
@@ -27,6 +21,6 @@
 
     ssh.enable = true;
   };
-
+  
   home.stateVersion = "24.05";
 }

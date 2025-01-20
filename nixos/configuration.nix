@@ -15,9 +15,6 @@
   networking.networkmanager.enable = true;
 
   nixpkgs = {
-    overlays = [
-      # neovim-nightly-overlay.overlays.default
-    ];
     config = {
       allowUnfree = true;
       allowInsecure = true;
@@ -55,9 +52,14 @@
     jofre = {
       initialPassword = "1234";
       isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
+      extraGroups = [
+        "wheel"
+        "docker"
       ];
+    };
+    jofrelsw = {
+      initialPassword = "1234";
+      isNormalUser = true;
       extraGroups = [
         "wheel"
         "docker"
@@ -93,14 +95,12 @@
     jack.enable = true;
   };
 
-  # services.libinput.enable = true;
-
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
 
   hardware = {
-    opengl.enable = true;
+    graphics.enable = true;
     nvidia.modesetting.enable = true;
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
@@ -114,7 +114,7 @@
 
   stylix = {
     enable = true;
-    image = ./../../wallpapers/15.jpg;
+    image = /home/jofre/.config/hypr/wallpapers/15.jpg;
     base16Scheme = ./theme.yml;
     polarity = "dark";
   };

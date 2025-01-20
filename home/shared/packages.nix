@@ -1,5 +1,12 @@
 { pkgs, ... }:
 {
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowInsecure = true;
+    };
+  };
+
   home.packages = with pkgs; [
     # cli
     fastfetch
@@ -19,7 +26,6 @@
     kitty
     chromium
     qutebrowser
-    obsidian
     google-chrome
     nautilus
     gnome-randr
@@ -32,16 +38,10 @@
     dialect
     apostrophe
     errands
-    vscode
-    dbeaver-bin
 
     # other
     dmenu-wayland
     wofi
-    bitwarden-cli
-    rbw
-    rofi-rbw
-    openconnect
     dropbox-cli
 
     # dependencies
