@@ -38,19 +38,6 @@
           modules = [
             ./nixos/configuration.nix
             inputs.stylix.nixosModules.stylix
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit (self) inputs outputs;
-              };
-              home-manager.users = {
-                jofre = import ./home/jofre.nix;
-                jofrelsw = import ./home/jofrelsw.nix;
-              };
-            }
           ];
         };
       };
@@ -63,7 +50,7 @@
             inherit inputs outputs;
           };
           modules = [
-            ./jofre/home.nix
+            ./home/jofre.nix
             inputs.stylix.homeManagerModules.stylix
           ];
         };
@@ -73,7 +60,7 @@
             inherit inputs outputs;
           };
           modules = [
-            ./jofre/home.nix
+            ./home/jofrelsw.nix
             inputs.stylix.homeManagerModules.stylix
           ];
         };

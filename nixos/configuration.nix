@@ -42,6 +42,7 @@
     fish
     hyprland
     hyprpaper
+    kitty
 
     bluez
     bluez-tools
@@ -109,7 +110,14 @@
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      hr-jofre = "home-manager switch --flake github:Jofr3/nix#jofre@nixos";
+      hr-jofrelsw = "home-manager switch --flake github:Jofr3/nix#jofrelsw@nixos";
+    };
+  };
+
   users.defaultUserShell = pkgs.fish;
 
   stylix = {

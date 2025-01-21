@@ -28,26 +28,5 @@
     ssh.enable = true;
   };
   
-  # systemd.user.services.vpn_service = {
-  #   Unit = {
-  #     Description = "vpn service";
-  #     After = [ "default.target" ];
-  #   };
-
-  #   Service = {
-  #     ExecStart = "${pkgs.writeScript "startup-script" ''
-  #       #!${pkgs.bash}/bin/bash
-  #       # Your commands here
-  #       touch /home/jofre/test
-  #     ''}";
-  #     
-  #     Restart = "on-failure";
-  #   };
-
-  #   Install = {
-  #     WantedBy = [ "default.target" ]; 
-  #   };
-  # };
-
   home.stateVersion = "24.05";
 }
