@@ -4,17 +4,18 @@
     ../home/shared/packages.nix
     ../home/shared/stylix.nix
     ../home/shared/configs.nix
+    ../home/jofre/packages.nix
   ];
 
   home = {
     username = "jofre";
     homeDirectory = "/home/jofre";
 
-    packages = with pkgs; [
-      xdg-desktop-portal-hyprland
-      lan-mouse
-      htop
-    ];
+    # packages = with pkgs; [
+    #   xdg-desktop-portal-hyprland
+    #   lan-mouse
+    #   htop
+    # ];
   };
 
   wayland.windowManager.hyprland.enable = true;

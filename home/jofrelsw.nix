@@ -4,17 +4,18 @@
     ../home/shared/packages.nix
     ../home/shared/stylix.nix
     ../home/shared/configs.nix
+    ../home/jofrelsw/packages.nix
   ];
 
   home = {
     username = "jofrelsw";
     homeDirectory = "/home/jofrelsw";
 
-    packages = with pkgs; [
-      vscode
-      dbeaver-bin
-      openconnect
-    ];
+    # packages = with pkgs; [
+    #   vscode
+    #   dbeaver-bin
+    #   openconnect
+    # ];
   };
 
   wayland.windowManager.hyprland.enable = true;
