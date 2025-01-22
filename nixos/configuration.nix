@@ -56,6 +56,13 @@
       extraGroups = [
         "wheel"
         "docker"
+        "networkmanager"
+        "video"
+        "audio"
+        "input"
+        "render"
+        "dialout"
+        "plugdev"
       ];
     };
     jofrelsw = {
@@ -64,8 +71,20 @@
       extraGroups = [
         "wheel"
         "docker"
+        "networkmanager"
+        "video"
+        "audio"
+        "input"
+        "render"
+        "dialout"
+        "plugdev"
       ];
     };
+  };
+
+  users.groups = {
+    docker = {};
+    plugdev = {};
   };
 
   virtualisation.docker.enable = true;
