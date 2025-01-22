@@ -8,10 +8,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs-stable";
@@ -48,30 +44,6 @@
                 jofrelsw = import ./home/jofrelsw.nix;
               };
             }
-          ];
-        };
-      };
-
-      # home-manager switch --flake .#jofre@nixos
-      homeConfigurations = {
-        "jofre@nixos" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [
-            ./home/jofre.nix
-            inputs.stylix.homeManagerModules.stylix
-          ];
-        };
-        "jofrelsw@nixos" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [
-            ./home/jofrelsw.nix
-            inputs.stylix.homeManagerModules.stylix
           ];
         };
       };

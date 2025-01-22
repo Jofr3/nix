@@ -4,18 +4,17 @@
     ../home/shared/packages.nix
     ../home/shared/stylix.nix
     ../home/shared/configs.nix
-    ../home/jofre/packages.nix
   ];
 
   home = {
     username = "jofre";
     homeDirectory = "/home/jofre";
 
-    # packages = with pkgs; [
-    #   xdg-desktop-portal-hyprland
-    #   lan-mouse
-    #   htop
-    # ];
+    packages = with pkgs; [
+      xdg-desktop-portal-hyprland
+      lan-mouse
+      htop
+    ];
   };
 
   wayland.windowManager.hyprland.enable = true;
@@ -30,14 +29,6 @@
     ssh.enable = true;
   };
 
-  xdg = {
-    enable = true;
-    userDirs = {
-      enable = true;
-      createDirectories = true;
-    };
-  };
-  
   systemd.user.startServices = "sd-switch";
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
