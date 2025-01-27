@@ -14,6 +14,7 @@
       vscode
       dbeaver-bin
       openconnect
+      lan-mouse
     ];
   };
 

@@ -34,18 +34,33 @@
           modules = [
             ./nixos/configuration.nix
             inputs.stylix.nixosModules.stylix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-
-              home-manager.users = {
-                jofre = import ./home/jofre.nix;
-                jofrelsw = import ./home/jofrelsw.nix;
-              };
-            }
           ];
         };
       };
+
+      # home-manager switch --flake .#jofre@nixos
+      homeConfigurations = {
+        "jofre@nixos" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [
+            ./home/jofre.nix
+            inputs.stylix.homeManagerModules.stylix
+          ];
+        };
+        "jofrelsw@nixos" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [
+            ./home/jofrelsw.nix
+            inputs.stylix.homeManagerModules.stylix
+          ];
+        };
+      };
+
     };
 }

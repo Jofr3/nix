@@ -65,6 +65,7 @@
     nodejs_23
     rsync
     gnumake
+    xdg-desktop-portal-hyprland
 
     # lsp's
     lua-language-server

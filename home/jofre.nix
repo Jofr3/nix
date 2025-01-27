@@ -11,8 +11,6 @@
     homeDirectory = "/home/jofre";
 
     packages = with pkgs; [
-      xdg-desktop-portal-hyprland
-      lan-mouse
       htop
     ];
   };
