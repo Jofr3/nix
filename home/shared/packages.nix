@@ -12,6 +12,9 @@
     fastfetch
     lazygit
     nix-prefetch-github
+    brightnessctl
+    playerctl
+    pulseaudio
 
     # neovim
     neovim
@@ -24,6 +27,7 @@
 
     # apps
     kitty
+    wezterm
     chromium
     qutebrowser
     google-chrome

@@ -43,29 +43,10 @@
     hyprland
     hyprpaper
     kitty
-
-    bluez
-    bluez-tools
-    blueman
   ];
 
   users.users = {
     jofre = {
-      initialPassword = "1234";
-      isNormalUser = true;
-      extraGroups = [
-        "wheel"
-        "docker"
-        "networkmanager"
-        "video"
-        "audio"
-        "input"
-        "render"
-        "dialout"
-        "plugdev"
-      ];
-    };
-    jofrelsw = {
       initialPassword = "1234";
       isNormalUser = true;
       extraGroups = [
@@ -132,12 +113,13 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      hr-jofre = "home-manager switch --flake github:Jofr3/nix#jofre@nixos";
-      hr-jofrelsw = "home-manager switch --flake github:Jofr3/nix#jofrelsw@nixos";
+      hr-remote = "home-manager switch --flake github:Jofr3/nix#jofre@nixos";
     };
   };
 
   users.defaultUserShell = pkgs.fish;
+
+  services.gnome.gnome-keyring.enable = true;
 
   stylix = {
     enable = true;

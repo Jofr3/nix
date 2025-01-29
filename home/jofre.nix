@@ -11,7 +11,15 @@
     homeDirectory = "/home/jofre";
 
     packages = with pkgs; [
-      htop
+      dbeaver-bin
+      vscode
+      openconnect
+      lan-mouse
+
+      overskride
+      git-crypt
+
+      hyprpicker
     ];
   };
 
@@ -22,12 +30,22 @@
       enable = true;
       userName = "Jofr3";
       userEmail = "jofrescari@gmail.com";
+      includes = [
+          {
+            condition = "gitdir:~/lsw/";
+            contents = {
+              user.name = "JofreLSW";
+              user.email = "jofrelsw@gmail.com";
+            };
+          }
+        ];
     };
 
     ssh.enable = true;
   };
 
   systemd.user.startServices = "sd-switch";
-  home.stateVersion = "24.05";
+  home.enableNixpkgsReleaseCheck = false;
+  home.stateVersion = "24.11";
   programs.home-manager.enable = true;
 }
