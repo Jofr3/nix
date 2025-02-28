@@ -96,6 +96,8 @@
     jack.enable = true;
   };
 
+  services.flatpak.enable = true;
+
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
@@ -125,6 +127,7 @@
     enable = true;
     image = ../theme/wallpaper.jpg;
     base16Scheme = ../theme/gruvbox.yml;
+    cursor.size = 24;
     polarity = "dark";
   };
 

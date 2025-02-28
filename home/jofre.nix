@@ -17,9 +17,10 @@
       lan-mouse
 
       overskride
-      git-crypt
 
       hyprpicker
+      vivaldi
+      wdisplays
     ];
   };
 
