@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, zellij-sessionizer, zellij-bar, ... }:
 {
   imports = [
     ../home/shared/packages.nix
@@ -21,6 +21,13 @@
       hyprpicker
       vivaldi
       wdisplays
+      gaphor
+      discord
+
+      # abduco
+      zellij
+      foot
+      fzf
     ];
   };
 
@@ -45,7 +52,14 @@
     ssh.enable = true;
   };
 
+  home.activation.copyZellijSessionizer = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    mkdir -p $HOME/.config/zellij/plugins
+    cp -n ${zellij-sessionizer} $HOME/.config/zellij/plugins/sessionizer.wasm
+    cp -n ${zellij-bar} $HOME/.config/zellij/plugins/bar.wasm
+  '';
+
   systemd.user.startServices = "sd-switch";
+
   home.enableNixpkgsReleaseCheck = false;
   home.stateVersion = "24.11";
   programs.home-manager.enable = true;

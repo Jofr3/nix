@@ -75,5 +75,7 @@
     lua-language-server
     nil
     vscode-langservers-extracted
+    typescript
+    typescript-language-server
   ];
 }

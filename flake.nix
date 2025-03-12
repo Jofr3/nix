@@ -13,6 +13,15 @@
       url = "github:danth/stylix/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
+    zellij-sessionizer = {
+      url = "file+https://github.com/laperlej/zellij-sessionizer/releases/latest/download/zellij-sessionizer.wasm";
+      flake = false;
+    };
+    zellij-bar = {
+      url = "file+https://github.com//dj95/zjstatus/releases/download/v0.20.2/zjstatus.wasm";
+      flake = false;
+    };
+
   };
 
   outputs =
@@ -45,6 +54,8 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs outputs;
+            inherit (inputs) zellij-sessionizer;
+            inherit (inputs) zellij-bar;
           };
           modules = [
             ./home/jofre.nix

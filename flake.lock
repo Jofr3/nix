@@ -280,7 +280,9 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "zellij-bar": "zellij-bar",
+        "zellij-sessionizer": "zellij-sessionizer"
       }
     },
     "stylix": {
@@ -381,6 +383,30 @@
         "owner": "tinted-theming",
         "repo": "tinted-tmux",
         "type": "github"
+      }
+    },
+    "zellij-bar": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-VcRwtHFTmJDulGlxIArFMFhVUvwBw01gBXCrCZ3L1IM=",
+        "type": "file",
+        "url": "https://github.com//dj95/zjstatus/releases/download/v0.20.2/zjstatus.wasm"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com//dj95/zjstatus/releases/download/v0.20.2/zjstatus.wasm"
+      }
+    },
+    "zellij-sessionizer": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-1NwPnyZfQwo0fboVfXTwXkz/5kxzoCpFfPSbXJp6Yw8=",
+        "type": "file",
+        "url": "https://github.com/laperlej/zellij-sessionizer/releases/latest/download/zellij-sessionizer.wasm"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/laperlej/zellij-sessionizer/releases/latest/download/zellij-sessionizer.wasm"
       }
     }
   },
