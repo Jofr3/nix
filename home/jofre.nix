@@ -1,4 +1,4 @@
-{ pkgs, lib, zellij-sessionizer, zellij-bar, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ../home/shared/packages.nix
@@ -24,10 +24,11 @@
       gaphor
       discord
 
-      # abduco
       zellij
       foot
       fzf
+      floorp
+      firefox
     ];
   };
 
@@ -51,12 +52,6 @@
 
     ssh.enable = true;
   };
-
-  home.activation.copyZellijSessionizer = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    mkdir -p $HOME/.config/zellij/plugins
-    cp -n ${zellij-sessionizer} $HOME/.config/zellij/plugins/sessionizer.wasm
-    cp -n ${zellij-bar} $HOME/.config/zellij/plugins/bar.wasm
-  '';
 
   systemd.user.startServices = "sd-switch";
 

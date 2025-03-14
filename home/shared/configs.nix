@@ -4,7 +4,7 @@ let
     owner = "Jofr3";
     repo = ".dotfiles";
     rev = "e1fc2d53e1c90893e20ab67d895d2f98937d17d1";
-    sha256 = "sha256-HehK7+ofJm+l3Rmpm2Aq1yODXCYLTb94oZaGkcnOl9Q=";
+    sha256 = "sha256-2bOXxX9iKB3gG5UydqfxxOZ/iJdxqI81u3+iexcNWNo=";
   };
 in 
 {
