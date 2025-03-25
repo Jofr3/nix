@@ -4,7 +4,7 @@ let
     owner = "Jofr3";
     repo = ".dotfiles";
     rev = "e1fc2d53e1c90893e20ab67d895d2f98937d17d1";
-    sha256 = "sha256-2bOXxX9iKB3gG5UydqfxxOZ/iJdxqI81u3+iexcNWNo=";
+    sha256 = "sha256-fxMWJ02jeOh9ofU3N4gikOx1M6pu30Dx7fukn/TKVsQ=";
   };
 in 
 {
@@ -16,5 +16,6 @@ in
     ".config/kitty".source = "${myConfig}/config/kitty";
     ".config/zellij".source = "${myConfig}/config/zellij";
     ".config/wezterm".source = "${myConfig}/config/wezterm";
+    ".config/wayfire/wayfire.ini".source = "${myConfig}/config/wayfire.ini";
   };
 }

@@ -38,12 +38,24 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    python312Packages.qtile
+    river
+    wayland
+    xwayland
+    libinput
+
     home-manager
     fish
     hyprland
     hyprpaper
     kitty
+    
+    wayfire
   ];
+  
+  programs.wayfire = {
+    enable = true;
+  };
 
   users.users = {
     jofre = {
@@ -74,12 +86,10 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.enable = true;
+  services.displayManager.ly.enable = true;
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
+  # services.dbus.enable = true;
 
   services.xserver.xkb = {
     layout = "us";
@@ -109,8 +119,11 @@
     bluetooth.powerOnBoot = true;
   };
 
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 
   programs.fish = {
     enable = true;

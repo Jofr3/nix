@@ -32,20 +32,13 @@
     qutebrowser
     google-chrome
     nautilus
-    gnome-randr
     eog
     wl-color-picker
     gnome-calculator
     papers
-    gnome-bluetooth
-    gnome-screenshot
-    dialect
-    apostrophe
-    errands
+    gnome-text-editor
 
     # other
-    dmenu-wayland
-    wofi
     dropbox-cli
 
     # dependencies

@@ -29,10 +29,14 @@
       fzf
       floorp
       firefox
+
+      tofi
+      microsoft-edge
+      wlprop
     ];
   };
 
-  wayland.windowManager.hyprland.enable = true;
+  # wayland.windowManager.hyprland.enable = true;
 
   programs = {
     git = {
