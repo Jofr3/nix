@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -40,6 +39,9 @@
 
     # other
     dropbox-cli
+    slurp
+    grim
+    mako
 
     # dependencies
     git
@@ -68,7 +70,13 @@
     lua-language-server
     nil
     vscode-langservers-extracted
-    typescript
     typescript-language-server
+    typos-lsp
+
+    # formatters
+    stylua
+    blade-formatter
+    php83Packages.php-cs-fixer
+    nixfmt-classic
   ];
 }

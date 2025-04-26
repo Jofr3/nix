@@ -1,14 +1,5 @@
-{
-  inputs,
-  lib,
-  _config,
-  pkgs,
-  ...
-}:
-{
-  imports = [
-    ./hardware-configuration.nix
-  ];
+{ inputs, lib, config, pkgs, ... }: {
+  imports = [ ./hardware-configuration.nix ];
 
   boot.loader.systemd-boot.enable = true;
 
@@ -21,21 +12,12 @@
     };
   };
 
-  nix =
-    let
-      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-    in
-    {
-      settings = {
-        experimental-features = "nix-command flakes";
-      };
-    };
+  nix = let flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+  in { settings = { experimental-features = "nix-command flakes"; }; };
 
   networking.hostName = "nixos";
 
-  fonts.packages = with pkgs; [
-    fira-code-nerdfont
-  ];
+  fonts.packages = with pkgs; [ fira-code-nerdfont ];
 
   environment.systemPackages = with pkgs; [
     python312Packages.qtile
@@ -49,12 +31,15 @@
     hyprland
     hyprpaper
     kitty
-    
+
     wayfire
   ];
-  
-  programs.wayfire = {
+
+  programs.wayfire = { enable = true; };
+
+  programs.hyprland = {
     enable = true;
+    xwayland.enable = true;
   };
 
   users.users = {
@@ -76,8 +61,8 @@
   };
 
   users.groups = {
-    docker = {};
-    plugdev = {};
+    docker = { };
+    plugdev = { };
   };
 
   virtualisation.docker.enable = true;
@@ -89,7 +74,7 @@
   services.displayManager.enable = true;
   services.displayManager.ly.enable = true;
 
-  # services.dbus.enable = true;
+  services.dbus.enable = true;
 
   services.xserver.xkb = {
     layout = "us";
@@ -108,13 +93,10 @@
 
   services.flatpak.enable = true;
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-  };
+  environment.sessionVariables = { NIXOS_OZONE_WL = "1"; };
 
   hardware = {
     graphics.enable = true;
-    nvidia.modesetting.enable = true;
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
   };
@@ -135,6 +117,17 @@
   users.defaultUserShell = pkgs.fish;
 
   services.gnome.gnome-keyring.enable = true;
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
   stylix = {
     enable = true;

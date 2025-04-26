@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   imports = [
     ../home/shared/packages.nix
@@ -33,6 +33,8 @@
       tofi
       microsoft-edge
       wlprop
+
+      wlr-randr
     ];
   };
 
