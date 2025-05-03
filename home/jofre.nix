@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ../home/shared/packages.nix
@@ -12,33 +12,19 @@
 
     packages = with pkgs; [
       dbeaver-bin
-      vscode
+      
       openconnect
       lan-mouse
 
       overskride
 
       hyprpicker
-      vivaldi
-      wdisplays
-      gaphor
-      discord
 
-      zellij
-      foot
-      fzf
-      floorp
       firefox
-
-      tofi
-      microsoft-edge
-      wlprop
-
-      wlr-randr
     ];
   };
 
-  # wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland.enable = true;
 
   programs = {
     git = {

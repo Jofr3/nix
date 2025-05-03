@@ -14,6 +14,7 @@
     brightnessctl
     playerctl
     pulseaudio
+    zellij
 
     # neovim
     neovim
@@ -36,12 +37,18 @@
     gnome-calculator
     papers
     gnome-text-editor
+    wdisplays
+    vivaldi
+    vscode
+    foot
+    discord
 
     # other
     dropbox-cli
     slurp
     grim
     mako
+    tofi
 
     # dependencies
     git
@@ -65,6 +72,7 @@
     rsync
     gnumake
     xdg-desktop-portal-hyprland
+    fzf
 
     # lsp's
     lua-language-server

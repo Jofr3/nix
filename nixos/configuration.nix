@@ -31,11 +31,7 @@
     hyprland
     hyprpaper
     kitty
-
-    wayfire
   ];
-
-  programs.wayfire = { enable = true; };
 
   programs.hyprland = {
     enable = true;
