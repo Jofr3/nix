@@ -122,16 +122,16 @@
 
   services.gnome.gnome-keyring.enable = true;
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  #services.xserver.videoDrivers = [ "nvidia" ];
 
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
+  #hardware.nvidia = {
+   # modesetting.enable = true;
+   # powerManagement.enable = false;
+   # powerManagement.finegrained = false;
+    #open = false;
+   # nvidiaSettings = true;
+   # package = config.boot.kernelPackages.nvidiaPackages.stable;
+ # };
 
   stylix = {
     enable = true;
