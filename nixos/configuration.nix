@@ -52,9 +52,17 @@
         "render"
         "dialout"
         "plugdev"
+        "kvm"
+        "adbusers"
       ];
     };
   };
+
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTR{idVendor}=="12d1", MODE="0666", GROUP="plugdev"
+  '';
+
+  services.udev.enable = true;
 
   users.groups = {
     docker = { };
