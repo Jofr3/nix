@@ -4,7 +4,6 @@ let
 in
 {
   xdg.configFile = {
-    hypr.source = "${dotfiles}/config/hypr";
     foot.source = "${dotfiles}/config/foot";
     fish.source = "${dotfiles}/config/fish";
     tofi.source = "${dotfiles}/config/tofi";
