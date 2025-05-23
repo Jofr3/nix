@@ -52,32 +52,24 @@
         "render"
         "dialout"
         "plugdev"
-        "kvm"
         "adbusers"
+        "kvm"
       ];
     };
   };
-
-  services.udev.extraRules = ''
-    SUBSYSTEM=="usb", ATTR{idVendor}=="12d1", MODE="0666", GROUP="plugdev"
-  '';
-
-  services.udev.enable = true;
 
   users.groups = {
     docker = { };
     plugdev = { };
   };
 
-  services.udev.packages = [
-    pkgs.android-udev-rules
-  ];
+  services.udev.packages = [ pkgs.android-udev-rules ];
 
-services.udev.extraRules = ''
-  SUBSYSTEM=="usb", ATTR{idVendor}=="12d1", MODE="0666", GROUP="plugdev"
-'';
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTR{idVendor}=="12d1", MODE="0666", GROUP="plugdev"
+  '';
 
-services.udev.enable = true; # Ensure udev service is enabled
+  services.udev.enable = true; # Ensure udev service is enabled
 
   virtualisation.docker.enable = true;
 
@@ -110,10 +102,18 @@ services.udev.enable = true; # Ensure udev service is enabled
   environment.sessionVariables = { NIXOS_OZONE_WL = "1"; };
 
   hardware = {
-    graphics.enable = true;
+    graphics = {
+      enable = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [ intel-media-driver vaapiIntel ];
+    };
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
   };
+
+  boot.kernelParams = lib.mkIf (config.hardware.intelgpu.driver == "i915")
+    [ "i915.enable_guc=3" ];
+  hardware.intelgpu.vaapiDriver = "intel-media-driver";
 
   xdg.portal = {
     enable = true;
@@ -129,20 +129,6 @@ services.udev.enable = true; # Ensure udev service is enabled
   };
 
   users.defaultUserShell = pkgs.fish;
-
-  services.gnome.gnome-keyring.enable = true;
-
-
-  #services.xserver.videoDrivers = [ "nvidia" ];
-
-  #hardware.nvidia = {
-   # modesetting.enable = true;
-   # powerManagement.enable = false;
-   # powerManagement.finegrained = false;
-    #open = false;
-   # nvidiaSettings = true;
-   # package = config.boot.kernelPackages.nvidiaPackages.stable;
- # };
 
   stylix = {
     enable = true;

@@ -21,6 +21,7 @@
 
       firefox
       harlequin
+      thunderbird
     ];
   };
 
