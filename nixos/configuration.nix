@@ -58,26 +58,18 @@
     };
   };
 
-  services.udev.extraRules = ''
-    SUBSYSTEM=="usb", ATTR{idVendor}=="12d1", MODE="0666", GROUP="plugdev"
-  '';
-
-  services.udev.enable = true;
-
   users.groups = {
     docker = { };
     plugdev = { };
   };
 
-  services.udev.packages = [
-    pkgs.android-udev-rules
-  ];
-
-services.udev.extraRules = ''
-  SUBSYSTEM=="usb", ATTR{idVendor}=="12d1", MODE="0666", GROUP="plugdev"
-'';
-
-services.udev.enable = true; # Ensure udev service is enabled
+  services.udev = {
+    enable = true;
+    packages = [ pkgs.android-udev-rules ];
+    extraRules = ''
+      SUBSYSTEM=="usb", ATTR{idVendor}=="12d1", MODE="0666", GROUP="plugdev"
+    '';
+  };
 
   virtualisation.docker.enable = true;
 
@@ -132,17 +124,16 @@ services.udev.enable = true; # Ensure udev service is enabled
 
   services.gnome.gnome-keyring.enable = true;
 
-
   #services.xserver.videoDrivers = [ "nvidia" ];
 
   #hardware.nvidia = {
-   # modesetting.enable = true;
-   # powerManagement.enable = false;
-   # powerManagement.finegrained = false;
-    #open = false;
-   # nvidiaSettings = true;
-   # package = config.boot.kernelPackages.nvidiaPackages.stable;
- # };
+  # modesetting.enable = true;
+  # powerManagement.enable = false;
+  # powerManagement.finegrained = false;
+  #open = false;
+  # nvidiaSettings = true;
+  # package = config.boot.kernelPackages.nvidiaPackages.stable;
+  # };
 
   stylix = {
     enable = true;

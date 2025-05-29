@@ -19,9 +19,10 @@
 
       hyprpicker
 
-      firefox
-      harlequin
       thunderbird
+      mysql80
+      jq
+      dmenu-wayland
     ];
   };
 
@@ -48,7 +49,7 @@
         "$mod, Return, exec, foot"
         "$mod, T, togglefloating"
         "$mod, F, exec, exec $(tofi-run --drun-launch=true --fuzzy-match=true)"
-        "$mod, B, exec, ~/.config/tofi/scripts/bookmarks.fish"
+        "$mod, B, exec, bash /home/jofre/.dotfiles/scripts/bookmarks.sh"
         ''
           $mod, X, exec, grim -g "$(slurp)" "/home/jofre/Documents/screenshots/$(date +%Y%m%d-%H%M%S)".png''
         "$mod, I, exec, brightnessctl set 5%-"
