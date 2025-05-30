@@ -16,6 +16,7 @@
     pulseaudio
     zellij
     btop
+    lsof
 
     # neovim
     neovim

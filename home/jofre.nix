@@ -22,6 +22,8 @@
       thunderbird
       mysql80
       jq
+
+      wl-color-picker
     ];
   };
 
@@ -45,7 +47,7 @@
 
       bind = [
         "$mod, C, killactive"
-        "$mod, Return, exec, foot"
+        "$mod, Return, exec, wezterm"
         "$mod, T, togglefloating"
         "$mod, F, exec, exec $(tofi-run --drun-launch=true --fuzzy-match=true)"
         "$mod, B, exec, bash /home/jofre/.dotfiles/scripts/bookmarks.sh"
