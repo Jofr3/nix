@@ -15,6 +15,7 @@
     playerctl
     pulseaudio
     zellij
+    btop
 
     # neovim
     neovim

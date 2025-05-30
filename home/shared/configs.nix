@@ -8,6 +8,7 @@ in
     fish.source = "${dotfiles}/config/fish";
     tofi.source = "${dotfiles}/config/tofi";
     nvim.source = "${dotfiles}/config/nvim";
+    btop.source = "${dotfiles}/config/btop";
     kitty.source = "${dotfiles}/config/kitty";
     zellij.source = "${dotfiles}/config/zellij";
   };

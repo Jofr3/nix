@@ -22,7 +22,6 @@
       thunderbird
       mysql80
       jq
-      dmenu-wayland
     ];
   };
 

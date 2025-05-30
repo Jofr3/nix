@@ -16,6 +16,7 @@
   in { settings = { experimental-features = "nix-command flakes"; }; };
 
   networking.hostName = "nixos";
+  networking.firewall.enable = false;
 
   fonts.packages = with pkgs; [ fira-code-nerdfont ];
 
@@ -44,7 +45,7 @@
       isNormalUser = true;
       extraGroups = [
         "wheel"
-        "docker"
+        # "docker"
         "networkmanager"
         "video"
         "audio"
@@ -59,7 +60,7 @@
   };
 
   users.groups = {
-    docker = { };
+    # docker = { };
     plugdev = { };
   };
 
@@ -71,7 +72,7 @@
     '';
   };
 
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
 
   time.timeZone = "Europe/Madrid";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -119,6 +120,8 @@
       hr-remote = "home-manager switch --flake github:Jofr3/nix#jofre@nixos";
     };
   };
+
+  programs.ssh.startAgent = true;
 
   users.defaultUserShell = pkgs.fish;
 
