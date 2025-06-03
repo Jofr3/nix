@@ -43,6 +43,8 @@
       input = {
         kb_layout = "us,ca";
         kb_options = "caps:hyper";
+        repeat_delay = 250;
+        repeat_rate = 30;
       };
 
       bind = [
