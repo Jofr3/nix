@@ -24,6 +24,7 @@
       jq
 
       wl-color-picker
+      skim
     ];
   };
 
