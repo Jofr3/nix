@@ -56,7 +56,7 @@
     git
     gccgo
     zig
-    python39
+    python314
     lua
     luajitPackages.luarocks
     unzip
@@ -70,7 +70,7 @@
     wtype
     pinentry-tty
     openssl
-    nodejs_23
+    nodejs_24
     rsync
     gnumake
     xdg-desktop-portal-hyprland

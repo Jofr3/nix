@@ -18,7 +18,18 @@
   networking.hostName = "nixos";
   networking.firewall.enable = false;
 
-  fonts.packages = with pkgs; [ fira-code-nerdfont ];
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code 
+    # nerd-fonts.gohufont 
+    # nerd-fonts.bigblue-terminal
+    creep
+    tamzen
+    curie
+    envypn-font
+    scientifica
+    tewi-font
+    uw-ttyp0
+  ];
 
   environment.systemPackages = with pkgs; [
     python312Packages.qtile
@@ -32,6 +43,7 @@
     hyprland
     hyprpaper
     kitty
+    bash
   ];
 
   programs.hyprland = {
@@ -39,8 +51,11 @@
     xwayland.enable = true;
   };
 
+  programs.fish.enable = true;
+
   users.users = {
     jofre = {
+      shell = pkgs.fish;
       initialPassword = "1234";
       isNormalUser = true;
       extraGroups = [
@@ -114,16 +129,16 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
-  programs.fish = {
-    enable = true;
-    shellAliases = {
-      hr-remote = "home-manager switch --flake github:Jofr3/nix#jofre@nixos";
-    };
-  };
+  # programs.fish = {
+  #   enable = true;
+  #   shellAliases = {
+  #     hr-remote = "home-manager switch --flake github:Jofr3/nix#jofre@nixos";
+  #   };
+  # };
 
   programs.ssh.startAgent = true;
 
-  users.defaultUserShell = pkgs.fish;
+  # users.defaultUserShell = pkgs.fish;
 
   services.gnome.gnome-keyring.enable = true;
 
@@ -142,7 +157,7 @@
     enable = true;
     image = ../theme/wallpaper.jpg;
     base16Scheme = ../theme/gruvbox.yml;
-    cursor.size = 24;
+    # cursor.size = 24;
     polarity = "dark";
   };
 

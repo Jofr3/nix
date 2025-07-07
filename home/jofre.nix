@@ -3,6 +3,7 @@
     ../home/shared/packages.nix
     ../home/shared/stylix.nix
     ../home/shared/configs.nix
+    # ../home/shared/scripts.nix
   ];
 
   home = {
@@ -25,6 +26,7 @@
 
       wl-color-picker
       skim
+      bash
     ];
   };
 
@@ -55,7 +57,8 @@
         "$mod, F, exec, exec $(tofi-run --drun-launch=true --fuzzy-match=true)"
         "$mod, B, exec, bash /home/jofre/.dotfiles/scripts/bookmarks.sh"
         ''
-          $mod, X, exec, grim -g "$(slurp)" "/home/jofre/Documents/screenshots/$(date +%Y%m%d-%H%M%S)".png''
+          $mod, X, exec, grim -g "$(slurp)" "/home/jofre/Documents/screenshots/$(date +%Y%m%d-%H%M%S)".png 
+        ''
         "$mod, I, exec, brightnessctl set 5%-"
         "$mod, O, exec, brightnessctl set +5%"
         "$mod, Up, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
@@ -111,13 +114,9 @@
       enable = true;
       settings = {
         ipc = false;
-        preload = [
-          "~/.dotfiles/wallpapers/16.png"
-        ];
+        preload = [ "~/.dotfiles/wallpapers/16.png" ];
 
-        wallpaper = [
-          "eDP-1,~/.dotfiles/wallpapers/16.png"
-        ];
+        wallpaper = [ "eDP-1,~/.dotfiles/wallpapers/16.png" ];
       };
     };
   };
@@ -142,6 +141,6 @@
   systemd.user.startServices = "sd-switch";
 
   home.enableNixpkgsReleaseCheck = false;
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.05";
   programs.home-manager.enable = true;
 }
