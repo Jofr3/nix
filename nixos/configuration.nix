@@ -20,15 +20,15 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code 
-    # nerd-fonts.gohufont 
-    # nerd-fonts.bigblue-terminal
-    creep
-    tamzen
-    curie
-    envypn-font
-    scientifica
-    tewi-font
-    uw-ttyp0
+
+    # to try
+    # creep
+    # tamzen
+    # curie
+    # envypn-font
+    # scientifica
+    # tewi-font
+    # uw-ttyp0
   ];
 
   environment.systemPackages = with pkgs; [
@@ -129,16 +129,7 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
-  # programs.fish = {
-  #   enable = true;
-  #   shellAliases = {
-  #     hr-remote = "home-manager switch --flake github:Jofr3/nix#jofre@nixos";
-  #   };
-  # };
-
   programs.ssh.startAgent = true;
-
-  # users.defaultUserShell = pkgs.fish;
 
   services.gnome.gnome-keyring.enable = true;
 
@@ -157,7 +148,11 @@
     enable = true;
     image = ../theme/wallpaper.jpg;
     base16Scheme = ../theme/gruvbox.yml;
-    # cursor.size = 24;
+    cursor = {
+      package = pkgs.vanilla-dmz;
+      name = "Vanilla-DMZ";
+      size = 24;
+    };
     polarity = "dark";
   };
 
