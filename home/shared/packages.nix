@@ -87,6 +87,7 @@
     vscode-langservers-extracted
     typescript-language-server
     typos-lsp
+    markdown-oxide
 
     # formatters
     stylua
