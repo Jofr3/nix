@@ -17,6 +17,8 @@
     zellij
     btop
     lsof
+    openconnect
+    jq
 
     # neovim
     neovim
@@ -44,6 +46,7 @@
     vscode
     foot
     discord
+    thunderbird
 
     # other
     dropbox-cli
@@ -75,6 +78,8 @@
     gnumake
     xdg-desktop-portal-hyprland
     fzf
+    mysql80
+    bash
 
     # lsp's
     lua-language-server

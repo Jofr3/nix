@@ -12,6 +12,7 @@ in
     kitty.source = "${dotfiles}/config/kitty";
     zellij.source = "${dotfiles}/config/zellij";
     wezterm.source = "${dotfiles}/config/wezterm";
+    qutebrowser.source = "${dotfiles}/config/qutebrowser";
   };
 }
 
