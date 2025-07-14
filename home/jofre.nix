@@ -20,6 +20,8 @@
 
       wl-color-picker
       skim
+
+      gnumeric
     ];
   };
 
