@@ -42,7 +42,6 @@
     papers
     gnome-text-editor
     wdisplays
-    vivaldi
     vscode
     foot
     discord

@@ -18,10 +18,7 @@
 
       hyprpicker
 
-      wl-color-picker
       skim
-
-      gnumeric
     ];
   };
 
