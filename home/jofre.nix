@@ -19,6 +19,9 @@
       hyprpicker
 
       skim
+      postman
+
+      libreoffice-qt
     ];
   };
 
@@ -48,7 +51,22 @@
       }];
     };
 
-    ssh.enable = true;
+    ssh = {
+      enable = true;
+
+      controlMaster = "auto";
+      controlPath = "~/.ssh/control-%r@%h:%p";
+      controlPersist = "10m";
+
+      matchBlocks = {
+        "myclientum_dev" = {
+          hostname = "dev.myclientum.com";
+          user = "dev_myclientum_com";
+          port = 22;
+          identityFile = "~/.ssh/keys/jofre_key.pem";
+        };
+      };
+    };
   };
 
   systemd.user.startServices = "sd-switch";
