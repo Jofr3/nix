@@ -5,6 +5,7 @@
     ../home/shared/configs.nix
     # ../home/shared/scripts.nix
     ../home/shared/hyprland.nix
+    ../home/shared/ssh.nix
   ];
 
   home = {
@@ -49,23 +50,6 @@
           user.email = "jofrelsw@gmail.com";
         };
       }];
-    };
-
-    ssh = {
-      enable = true;
-
-      controlMaster = "auto";
-      controlPath = "~/.ssh/control-%r@%h:%p";
-      controlPersist = "10m";
-
-      matchBlocks = {
-        "myclientum_dev" = {
-          hostname = "dev.myclientum.com";
-          user = "dev_myclientum_com";
-          port = 22;
-          identityFile = "~/.ssh/keys/jofre_key.pem";
-        };
-      };
     };
   };
 
