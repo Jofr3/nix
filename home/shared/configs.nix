@@ -4,6 +4,7 @@ let
 in
 {
   xdg.configFile = {
+    git.source = "${dotfiles}/config/git";
     foot.source = "${dotfiles}/config/foot";
     fish.source = "${dotfiles}/config/fish";
     tofi.source = "${dotfiles}/config/tofi";

@@ -23,6 +23,8 @@
       postman
 
       libreoffice-qt
+
+      gemini-cli
     ];
   };
 
@@ -35,21 +37,6 @@
 
         wallpaper = [ "eDP-1,~/.dotfiles/wallpapers/16.png" ];
       };
-    };
-  };
-
-  programs = {
-    git = {
-      enable = true;
-      userName = "Jofr3";
-      userEmail = "jofrescari@gmail.com";
-      includes = [{
-        condition = "gitdir:~/lsw/";
-        contents = {
-          user.name = "JofreLSW";
-          user.email = "jofrelsw@gmail.com";
-        };
-      }];
     };
   };
 
