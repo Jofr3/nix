@@ -28,13 +28,20 @@
     ];
   };
 
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+  };
+
   services = {
     hyprpaper = {
       enable = true;
       settings = {
         ipc = false;
         preload = [ "~/.dotfiles/wallpapers/16.png" ];
-
         wallpaper = [ "eDP-1,~/.dotfiles/wallpapers/16.png" ];
       };
     };
