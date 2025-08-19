@@ -5,6 +5,7 @@
     ../home/shared/configs.nix
     # ../home/shared/scripts.nix
     ../home/shared/hyprland.nix
+    ../home/shared/ssh.nix
   ];
 
   home = {
@@ -26,7 +27,16 @@
       tree-sitter-grammars.tree-sitter-zig
 
       syncthing
+      gemini-cli
     ];
+  };
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
   };
 
   services = {
@@ -35,43 +45,10 @@
       settings = {
         ipc = false;
         preload = [ "~/.dotfiles/wallpapers/16.png" ];
-
         wallpaper = [ "eDP-1,~/.dotfiles/wallpapers/16.png" ];
       };
     };
     syncthing = { enable = true; };
-  };
-
-  programs = {
-    git = {
-      enable = true;
-      userName = "Jofr3";
-      userEmail = "jofrescari@gmail.com";
-      includes = [{
-        condition = "gitdir:~/lsw/";
-        contents = {
-          user.name = "JofreLSW";
-          user.email = "jofrelsw@gmail.com";
-        };
-      }];
-    };
-
-    ssh = {
-      enable = true;
-
-      controlMaster = "auto";
-      controlPath = "~/.ssh/control-%r@%h:%p";
-      controlPersist = "10m";
-
-      matchBlocks = {
-        "myclientum_dev" = {
-          hostname = "dev.myclientum.com";
-          user = "dev_myclientum_com";
-          port = 22;
-          identityFile = "~/.ssh/keys/jofre_key.pem";
-        };
-      };
-    };
   };
 
   systemd.user.startServices = "sd-switch";
