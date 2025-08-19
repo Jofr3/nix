@@ -77,7 +77,7 @@
         "8, monitor:HDMI-A-1"
       ];
 
-      exec-once = [ "hyprpaper" "dropbox start" ];
+      exec-once = [ "hyprpaper" ];
     };
   };
 }

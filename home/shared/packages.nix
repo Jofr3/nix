@@ -48,7 +48,6 @@
     thunderbird
 
     # other
-    dropbox-cli
     slurp
     grim
     mako

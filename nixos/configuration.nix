@@ -132,16 +132,6 @@
 
   programs.ssh = {
     startAgent = true;
-    extraConfig = ''
-      Host myclientum_dev
-          HostName dev.myclientum.com
-          User dev_myclientum_com
-          Port 22
-          IdentityFile /home/jofre/.ssh/keys/jofre_key.pem
-          ControlMaster auto
-          ControlPath ~/.ssh/control-%r@%h:%p
-          ControlPersist 10m
-    '';
   };
 
   services.gnome.gnome-keyring.enable = true;

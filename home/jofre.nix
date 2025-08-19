@@ -22,6 +22,10 @@
       postman
 
       libreoffice-qt
+
+      tree-sitter-grammars.tree-sitter-zig
+
+      syncthing
     ];
   };
 
@@ -35,6 +39,7 @@
         wallpaper = [ "eDP-1,~/.dotfiles/wallpapers/16.png" ];
       };
     };
+    syncthing = { enable = true; };
   };
 
   programs = {
